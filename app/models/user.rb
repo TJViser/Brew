@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter,:facebook, :google_oauth2]
 
+  validates :first_name, :last_name, presence: true
+  validates :beer_brand, uniqueness: true
+
   def self.find_for_twitter_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
