@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
     root to: 'pages#home'
 
+  resources :beers
+
 end
