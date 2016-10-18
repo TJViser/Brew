@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-def self.find_for_facebook_oauth(auth)
+  def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
@@ -23,9 +23,9 @@ def self.find_for_facebook_oauth(auth)
     end
 
     return user
-end
+  end
 
-def self.find_for_google_oauth(auth)
+  def self.find_for_google_oauth(auth)
 
     user_params = auth.to_h.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -44,5 +44,6 @@ def self.find_for_google_oauth(auth)
     end
 
     return user
+  end
 end
 
