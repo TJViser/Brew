@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :beers
   has_many :wishlists
+  has_many :beers
 
   def self.find_for_twitter_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h

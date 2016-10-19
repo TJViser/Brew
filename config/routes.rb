@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   resources :beers
 
+  get "dashboard", to: "users#dashboard"
+
 end
