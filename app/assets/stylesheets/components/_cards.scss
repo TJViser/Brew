@@ -1,10 +1,10 @@
-.card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  color: white;
-  position: relative;
-}
+// .card {
+//   height: 175px;
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   background-size: cover !important;
+//   color: white;
+//   position: relative;
+// }
 .card-user {
   position: absolute;
   right: 10px;
@@ -60,3 +60,20 @@
   color:white;
   font-size:15px;
 }
+
+.card-img-top {
+  width: 200px;
+}
+
+.card-deck-wrapper {
+  // border-style: solid;
+  // border-width:  1px;
+  border-color: black;
+  box-shadow: 5px 5px 0.8em  grey;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+
+}
+
+
