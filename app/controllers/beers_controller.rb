@@ -14,6 +14,7 @@ class BeersController < ApplicationController
 
   def create        # POST /beers
     @beer = Beer.new(beer_params)
+    @beer.user = current_user
     @beer.save
 
     redirect_to beer_path(@beer)
