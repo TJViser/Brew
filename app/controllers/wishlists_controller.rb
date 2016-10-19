@@ -7,6 +7,9 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist = Wishlist.new({ user_id: current_user.id, beer_id: params[:beer_id], quantity: 1 })
+    beer = Beer.find(id = params[:beer_id])
+    beer.stock -= 1
+    beer.save
     @wishlist.save
     redirect_to dashboard_path
   end
