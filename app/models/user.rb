@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   def self.find_for_twitter_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h
-    user_params.merge! auth.info.slice(:email, :first_name, :last_name)
+    user_params.merge! auth.info.slice(:first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:first_name] = auth.info.name.split(" ")[0]
