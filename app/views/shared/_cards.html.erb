@@ -1,0 +1,21 @@
+<div class="marged">
+  <div class="container">
+    <div class="row">
+      <% beers.each do |beer| %>
+            <div class="card col-sm-3">
+        <div class="card-deck-wrapper">
+          <div class="card-deck">
+              <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit  %>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title"><%= beer.name %></h4>
+                <p class="card-text"><%= beer.description %></p>
+                <p class="card-text"><small class="text-muted"><%= beer.created_at %></small></p>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
