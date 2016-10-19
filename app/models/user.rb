@@ -9,6 +9,7 @@ class User < ApplicationRecord
   #validates :beer_brand, uniqueness: true
 
   has_many :wishlists
+  has_many :beers
 
   def self.find_for_twitter_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h

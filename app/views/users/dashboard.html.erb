@@ -1,0 +1,14 @@
+<h1>My Wishlists</h1>
+
+<% @my_wishes.each do |wishlist| %>
+<p><%= wishlist.user.first_name %> <%= wishlist.user.last_name %> <%= wishlist.beer.name %> Quantity : <%= wishlist.quantity %></p>
+<% end %>
+
+<h1>My beers to send away</h1>
+<% @my_beers.each do |beer| %>
+  <p><%= beer.name %></p>
+  <% beer.wishlists.each do |wishlist| %>
+  <p><%= wishlist.user.first_name %> <%= wishlist.user.last_name %> </p>
+  <% end %>
+<% end %>
+
