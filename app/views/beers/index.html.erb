@@ -1,7 +1,3 @@
+<h1>All beers</h1>
 
-  <% @beers.each do |beer| %>
-    <h2><%= link_to "#{beer.name}", beer_path(beer) %></h2>
-    <p><%= beer.category %></p>
-    <p><%= beer.description %></p>
-    <p><%= beer.price %>EUR</p>
-  <%end%>
+<%= render 'shared/cards', beers: @beers %>
