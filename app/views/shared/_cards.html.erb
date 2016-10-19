@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row">
       <% beers.each do |beer| %>
-            <div class="card col-sm-3">
+        <div class="card col-sm-3">
+        <%= link_to beer_path(beer) do %>
         <div class="card-deck-wrapper">
           <div class="card-deck">
               <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit  %>
@@ -13,6 +14,7 @@
                 <p class="card-text"><small class="text-muted"><%= beer.created_at %></small></p>
               </div>
           </div>
+          <% end %>
         </div>
       <% end %>
     </div>
