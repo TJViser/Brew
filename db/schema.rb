@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018161453) do
+ActiveRecord::Schema.define(version: 20161019102255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161018161453) do
     t.string   "description"
     t.string   "category"
     t.float    "alcohol"
-    t.float    "conditionning"
+    t.string   "conditionning"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
