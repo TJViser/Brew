@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= simple_form_for @beer do |f| %>
-        <%= f.input :name, placeholder: "Your beer name" %>
-        <%= f.input :category, collection: [ "Blonde", "Dark", "White", "Ginger"] %>
-        <%= f.input :description, as: :text, placeholder: "How does it taste ?" %>
-        <%= f.input :alcohol, placeholder: "% vol" %>
-        <%= f.input :conditionning, collection: [ "25cl", "33cl", "50cl", "75cl"] %>
-        <%= f.input :stock, placeholder: "How much beers do you have ?" %>
-        <%= f.input :price, placeholder: "€/unit" %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
-        <%= f.submit 'Save', class:"btn btn-primary btn-block" %>
-      <% end %>
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= simple_form_for @beer do |f| %>
+          <%= f.input :name, placeholder: "Your beer name" %>
+          <%= f.input :category, collection: [ "Blonde", "Dark", "White", "Ginger"] %>
+          <%= f.input :description, as: :text, placeholder: "How does it taste ?" %>
+          <%= f.input :alcohol, placeholder: "% vol" %>
+          <%= f.input :conditionning, collection: [ "25cl", "33cl", "50cl", "75cl"] %>
+          <%= f.input :stock, placeholder: "How much beers do you have ?" %>
+          <%= f.input :price, placeholder: "€/unit" %>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.submit 'Save', class:"btn btn-primary btn-block" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
