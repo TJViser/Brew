@@ -5,6 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Beer.create(name: "White Widow", category: "White", description: "Amazing")
-Beer.create(name: "Purple Haze", category: "Dark", description: "Thrilling")
-Beer.create(name: "Orange Bud", category: "Blond", description: "Stunning")
