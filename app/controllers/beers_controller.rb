@@ -14,9 +14,12 @@ class BeersController < ApplicationController
 
   def create        # POST /beers
     @beer = Beer.new(beer_params)
-    @beer.save
-
-    redirect_to beer_path(@beer)
+    @beer.user = current_user
+    if @beer.save
+      redirect_to beer_path(@beer)
+    else
+      render :new
+    end
 
   end
 
@@ -43,8 +46,8 @@ class BeersController < ApplicationController
 private
 
   def beer_params
-    params.require(:beers).permit(:name, :price, :stock, :description,
-      :alcohol, :type, :conditionning, :photo, :photo_cache)
+    params.require(:beer).permit(:name, :price, :stock, :description,
+      :alcohol, :category, :conditionning, :photo, :photo_cache)
   end
 
 end

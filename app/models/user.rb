@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   #validates :beer_brand, uniqueness: true
 
+  has_many :beers
   has_many :wishlists
 
   def self.find_for_twitter_oauth(auth)
