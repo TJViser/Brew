@@ -1,8 +1,7 @@
 
   <% @beers.each do |beer| %>
-    <h2><%= beer.name %></h2>
+    <h2><%= link_to "#{beer.name}", beer_path(beer) %></h2>
     <p><%= beer.category %></p>
-    <p><%= link_to edit_beer_path(beer) %></p>
-    <p><%= link_to beer_path(beer), method: :delete, data: { confirm: 'Are you sure?' } %>
-     <p><%= link_to "", beer_path(beer) %>
+    <p><%= beer.description %></p>
+    <p><%= beer.price %>EUR</p>
   <%end%>

@@ -25,6 +25,7 @@ class BeersController < ApplicationController
 
   def edit          # GET /beers/:id/edit
     @beer = Beer.find(set_beer)
+
   end
 
   def update        # PATCH /beers/:id
@@ -39,7 +40,7 @@ class BeersController < ApplicationController
   @beer = Beer.find(set_beer)
   @beer.destroy
 
-  redirect_to beer_path
+  redirect_to beers_url, notice: 'Beer was successfully destroyed.'
 
   end
 
