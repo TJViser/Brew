@@ -21,6 +21,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+gem "geocoder"
 
 group :development, :test do
   gem 'binding_of_caller'
