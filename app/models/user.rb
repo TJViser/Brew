@@ -8,7 +8,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   #validates :beer_brand, uniqueness: true
 
+  has_many :beers
   has_many :wishlists
+  has_many :beers
 
   def self.find_for_twitter_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h
