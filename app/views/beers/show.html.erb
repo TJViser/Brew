@@ -16,7 +16,9 @@
 
 
 
-
+<% if @beer.stock > 0 %>
 <%= button_to "Add to Wishlist", beer_wishlists_path(@beer) %>
-
+<% else %>
+<p>Sold out</p>
+<% end %>
 
