@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
     root to: 'pages#home'
 
-  resources :beers
+  resources :beers do
+    resources :wishlists, only: [:create]
+  end
 
   get "dashboard", to: "users#dashboard"
+
+
 
 end
