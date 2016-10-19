@@ -2,9 +2,19 @@
   <div class="banner-content">
     <h1>BREW</h1>
     <p>Taste great homemade beers</p>
-    <i class="fa fa-arrow-circle-o-down fa-5x" id="get_down"></i>
+    <%= link_to root_path(anchor: 'beers-cards') do %>
+      <i class="fa fa-arrow-circle-o-down fa-5x" id="get_down"></i>
+    <% end %>
   </div>
 </div>
-  <%= render 'shared/cards', beers: @beers %>
+
+<div id="beers-cards">
+<%= render 'shared/cards', beers: @beers %>
+</div>
+
+<div class="marged text-center">
+  <%= link_to "SEE ALL BEERS", beers_path, class:"btn btn-primary btn-lg" %>
+<!--   <a class="btn btn-primary btn-lg">SEE ALL BEERS</a> -->
+</div>
 
 
