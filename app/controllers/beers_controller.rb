@@ -5,7 +5,7 @@ class BeersController < ApplicationController
   end
 
   def show          # GET /beers/:id
-    @beer = Beer.find(params[:id])
+    @beer = Beer.find(set_beer)
   end
 
   def new           # GET /beers/new
@@ -24,11 +24,11 @@ class BeersController < ApplicationController
   end
 
   def edit          # GET /beers/:id/edit
-    @beer = Beer.find(params[:id])
+    @beer = Beer.find(set_beer)
   end
 
   def update        # PATCH /beers/:id
-    @beer = Beer.find(params[:id])
+    @beer = Beer.find(set_beer)
     @beer.update(beer_params)
 
     redirect_to beer_path(@beer)
@@ -36,7 +36,7 @@ class BeersController < ApplicationController
   end
 
   def destroy       # DELETE /beers/:id
-  @beer = Beer.find(params[:id])
+  @beer = Beer.find(set_beer)
   @beer.destroy
 
   redirect_to beer_path
@@ -45,7 +45,12 @@ class BeersController < ApplicationController
 
 private
 
+  def set_beer
+      @beer = Beer.find(params[:id])
+    end
+
   def beer_params
+
     params.require(:beer).permit(:name, :price, :stock, :description,
       :alcohol, :category, :conditionning, :photo, :photo_cache)
   end

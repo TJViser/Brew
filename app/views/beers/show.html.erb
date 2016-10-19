@@ -1,0 +1,14 @@
+
+
+<h1>Beer info <%= @beer.name %></h1>
+
+<%= cl_image_tag @beer.photo, height: 300, width: 400, crop: :fill %>
+
+<h2>Beer category <%= @beer.category %></h2>
+<h2>Beer price <%= @beer.price %></h2>
+<h2>Beer stock <%= @beer.stock %></h2>
+<h2>Beer description <%= @beer.description %></h2>
+<h2>Beer alcohol <%= @beer.alcohol %></h2>
+<h2>Beer cond <%= @beer.conditionning %></h2>
+<h2>Beer user <%= @beer.user_id %></h2>
+
