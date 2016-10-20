@@ -16,7 +16,7 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).ready(function() {
-      var coord = <%= raw @user_coordinates %>;
+      var coord = <%= raw @user_coordinates.to_json %>;
       alert('User coordinates are ' + coord.lat + ', ' + coord.lng);
     });
   <% end %>

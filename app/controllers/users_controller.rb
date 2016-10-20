@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @alert_message = "You are viewing #{@user.first_name}"
     @user_coordinates = { lat: @user.latitude, lng: @user.longitude }
+
   end
 
 
