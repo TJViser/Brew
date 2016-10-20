@@ -1,13 +1,12 @@
-
 <div class='text-center'>
 <h2>Log in</h2>
 
   <div class='container'>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email, required: false, autofocus: true %>
       <%= f.input :password, required: false %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, as: :boolean %>
     </div>
 
     <div class="form-actions">
@@ -15,7 +14,6 @@
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
   </div> <!-- fin du div class=container -->
 
 </div> <!-- fin de la div class text-center -->
