@@ -42,14 +42,15 @@
   </div>
 </div>
 
-
+<div class="beer-profile">
 <% if @beer.stock > 0 %>
-  <%= link_to new_beer_wishlists_path(@beer) do %>
+  <%= link_to new_beer_wishlist_path(@beer) do %>
     <p class="btn btn-wishlist"> Add to Wishlist </p>
   <% end %>
 <% else %>
-  <p class="btn btn-sold-out muted">Sold out</p>
+  <p class="btn btn-sold-out">Sold out</p>
 <% end %>
+</div>
 
 
 
