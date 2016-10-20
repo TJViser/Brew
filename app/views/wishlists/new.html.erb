@@ -1,0 +1,19 @@
+<p>Where do you want the beer to be send ?</p>
+
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= simple_form_for [@beer, @wishlist] do |f| %>
+          <%= simple_fields_for current_user do |user_form| %>
+            <%= user_form.input :address, required: true %>
+            <%= user_form.input :cp, required: true %>
+            <%= user_form.input :city, required: true %>
+            <%= user_form.input :country, as: :string, required: true %>
+            <%= user_form.submit 'Save', class:"btn btn-primary btn-block" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

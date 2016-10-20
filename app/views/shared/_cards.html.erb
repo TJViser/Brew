@@ -27,25 +27,25 @@
   <div class="container">
     <div class="row">
       <% beers.each do |beer| %>
-        <div class="card col-sm-3">
-           <%= link_to beer_path(beer) do %>
+        <%= link_to beer_path(beer) do %>
+        <div class="card col-xs-12 col-sm-6 col-md-3">
           <div class="card-deck-wrapper">
             <div class="card-picture">
               <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit, :class => "card-picture" %>
             </div>
             <div class="card-block">
               <div class="card-info">
-              <h4 class="card-title"><%= beer.name %></h4>
-              <p class="card-user"><%= beer.user.first_name %> <%= beer.user.last_name %></p>
-              <p class="card-user"><%= beer.conditionning %></p>
-              <p class="card-text"><%= beer.description %></p>
+                <h4 class="card-title"><%= beer.name %></h4>
+                <p class="card-user"><%= beer.user.first_name %> <%= beer.user.last_name %></p>
+                <p class="card-user"><%= beer.conditionning %></p>
+                <p class="card-text"><%= beer.description %></p>
               </div>
-              <a href="#" class="btn btn-pricing"> <%= beer.price %> € </a>
+              <p class="btn btn-pricing"> <%= beer.price %> € </p>
               <p class="card-text creation"><small class="text-muted"><%= beer.created_at.strftime("%d %b. %Y") %></small></p>
             </div>
           </div>
-          <% end %>
         </div>
+          <% end %>
       <% end %>
     </div>
   </div>
