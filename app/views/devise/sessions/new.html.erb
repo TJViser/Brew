@@ -1,21 +1,48 @@
-
 <div class='text-center'>
 <h2>Log in</h2>
 
-  <div class='container'>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email, required: false, autofocus: true %>
-      <%= f.input :password, required: false %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
+  <div class='row'>
+    <div class="col-sm-12">
+      <%= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, placeholder: "Your email address", label_html: {class: "form-label"}, input_html: {class: "form-field"} %>
+          <%= f.input :password, required: false, placeholder: "Your password", label_html: {class: "form-label"}, input_html: {class: "form-field"}  %>
+          <%= f.input :remember_me, as: :boolean %>
+        </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
-    </div>
-  <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, "Log in" %>
+          </div>
 
-  <%= render "devise/shared/links" %>
-  </div> <!-- fin du div class=container -->
+      <% end %>
+    </div> <!-- fin du div class="col-sm-12" -->
+  </div> <!-- fin du div class='row' -->
+
+  <div class='row'>
+    <div class="col-sm-12">
+      <div class='login-buttons-container'>
+        <div class='login-buttons-row'>
+          <%= link_to omniauth_authorize_path(:user, :facebook), class: "login-button facebook-button" do %>
+            <i class="fa fa-facebook"></i> Login with Facebook
+          <% end %>
+        </div>
+
+        <div class='login-buttons-row'>
+          <%= link_to omniauth_authorize_path(:user, :google_oauth2), class: "login-button google-button" do %>
+            <i class="fa fa-google"></i> Login with Google
+          <% end %>
+        </div>
+
+        <div class='login-buttons-row'>
+          <%= link_to omniauth_authorize_path(:user, :twitter), class: "login-button twitter-button" do %>
+            <i class="fa fa-twitter"></i> Login with Twitter
+          <% end %>
+        </div>
+      </div> <!-- fin du div login-buttons-container -->
+        <div class="login-buttons-row">
+          <%= link_to "Not a member ? Sign up!", new_user_registration_path %>
+        </div>
+    </div> <!-- fin du div class="col-sm-12" -->
+  </div> <!-- fin du div class=row -->
 
 </div> <!-- fin de la div class text-center -->
