@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :wishlists
   has_many :beers
 
+  geocoded_by :city
+  after_validation :geocode, if: :city_changed?
+
   def self.find_for_twitter_oauth(auth)
     user_params = auth.slice(:provider, :uid).to_h
     user_params.merge! auth.info.slice(:first_name, :last_name)
