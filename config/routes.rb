@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     root to: 'pages#home'
 
   resources :beers do
-    resources :wishlists, only: [:create]
+    resources :wishlists, only: [:new, :create]
   end
+
   resources :users, only: :update
 
   get "dashboard", to: "users#dashboard"
