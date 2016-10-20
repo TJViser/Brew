@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20161020141336) do
     t.text     "bio"
     t.string   "beer_brand"
     t.string   "city"
+    t.float    "latitude"
+    t.float    "longitude"
     t.integer  "cp"
     t.string   "address"
     t.string   "country"

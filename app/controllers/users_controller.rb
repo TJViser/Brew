@@ -12,7 +12,11 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+    @alert_message = "You are viewing #{@user.first_name}"
+    @user_coordinates = { lat: @user.latitude, lng: @user.longitude }
+
   end
+
 
   def edit_profile
     @user = current_user
@@ -23,6 +27,7 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_profile_path(current_user)
   end
+
 
   private
   # def find_model
