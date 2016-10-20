@@ -43,7 +43,7 @@
 </div>
 
 <div class="beer-profile">
-
+<% if user_signed_in? %>
   <% if @beer.user != current_user %>
     <% if current_user.wishlists.count { |wishlist| wishlist.beer_id == @beer.id } == 0 %>
       <% if @beer.stock > 0 %>
@@ -60,8 +60,10 @@
     <% else %>
       <p class="btn btn-sold-out">Already wishlisted !</p>
     <% end %>
-  <% else %>
   <% end %>
+<% else %>
+  <%= button_to "Add to Wishlist", beer_wishlists_path(@beer), class:"btn btn-wishlist" %>
+<% end %>
 </div>
 
 
