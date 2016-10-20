@@ -9,6 +9,8 @@
   <p><%= beer.name %></p>
   <% beer.wishlists.each do |wishlist| %>
   <p><%= wishlist.user.first_name %> <%= wishlist.user.last_name %> </p>
+  <p><%= wishlist.user.address %></p>
+  <p><%= wishlist.user.cp %> <%= wishlist.user.city %> (<%= wishlist.user.country %>)</p>
   <% end %>
 <% end %>
 
