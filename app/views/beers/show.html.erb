@@ -4,13 +4,13 @@
 
 <%= cl_image_tag @beer.photo, height: 300, width: 400, crop: :fill %>
 
-<h2>Beer category <%= @beer.category %></h2>
-<h2>Beer price <%= @beer.price %> EUR</h2>
-<h2>Beer stock <%= @beer.stock %>units</h2>
-<h2>Beer description <%= @beer.description %></h2>
-<h2>Beer alcohol <%= @beer.alcohol %></h2>
-<h2>Beer cond <%= @beer.conditionning %> cl</h2>
-<h2>Beer user <%= @beer.user_id %></h2>
+<h2>Beer category: <%= @beer.category %></h2>
+<h2>Beer price: <%= @beer.price %> EUR</h2>
+<h2>Beer stock: <%= @beer.stock %>units</h2>
+<h2>Beer description: <%= @beer.description %></h2>
+<h2>Beer alcohol: <%= @beer.alcohol %></h2>
+<h2>Beer cond: <%= @beer.conditionning %> cl</h2>
+<h2>Brewer: <%= link_to @beer.user.first_name, user_profile_path(@beer.user) %></h2>
 <% if @beer.user == current_user %>
   <p><%= link_to 'Edit', edit_beer_path(@beer) %></p>
   <p><%= link_to 'Delete', beer_path(@beer), method: :delete, data: { confirm: 'Are you sure?' } %>
