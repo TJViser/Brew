@@ -3,9 +3,9 @@ class BeersController < ApplicationController
 
   def index         # GET /beers
     @beers = Beer.all
-    @hash = Gmaps4rails.build_markers(@beers) do |beer, marker|
-      marker.lat beer.user.latitude
-      marker.lng beer.user.longitude
+    @hash = Gmaps4rails.build_markers(@beers.map(&:user).uniq) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
       # marker.infowindow render_to_string(partial: "/beers/map_box", locals: { beer: beer })
     end
   end
