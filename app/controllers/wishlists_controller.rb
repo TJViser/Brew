@@ -1,11 +1,14 @@
 class WishlistsController < ApplicationController
-  before_filter :find_model
+  before_filter :find_wishlist
 
   def new
+    @beer = Beer.find(params[:beer_id])
     @wishlist = Wishlist.new
   end
 
   def create
+    @user = current_user
+    @user.update(address: params[:user][:address], cp: params[:user][:cp], city: params[:user][:city], country: params[:user][:country])
     @wishlist = Wishlist.new({ user_id: current_user.id, beer_id: params[:beer_id], quantity: 1 })
     @beer = Beer.find(id = params[:beer_id])
     @beer.stock -= 1
@@ -17,7 +20,7 @@ class WishlistsController < ApplicationController
 
   private
 
-  def find_model
-    @model = Wishlist.find(params[:id]) if params[:id]
+  def find_wishlist
+    @wishlist = Wishlist.find(params[:id]) if params[:id]
   end
 end

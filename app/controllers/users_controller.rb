@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :find_model
+  # before_filter :find_model
   skip_before_action :authenticate_user!, only: :profile
 
   def dashboard
@@ -30,9 +30,9 @@ class UsersController < ApplicationController
 
 
   private
-  def find_model
-    @model = User.find(params[:id]) if params[:id]
-  end
+  # def find_model
+  #   @model = User.find(params[:id]) if params[:id]
+  # end
 
   def user_params
       params.require(:user).permit(:first_name, :last_name, :bio, :beer_brand, :city)
