@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= simple_form_for @user do |f| %>
+          <%= f.input :first_name, required: true %>
+          <%= f.input :last_name, required: true %>
+          <%= f.input :beer_brand, autofocus: true, placeholder: "Your beer brand" %>
+          <%= f.input :city, placeholder: "Where do your beer come from ?" %>
+          <%= f.input :bio, placeholder: "Tell us more about you and your beers" %>
+          <%= f.submit 'Save', class:"btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
