@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20161020102325) do
   create_table "beers", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
-    t.integer  "stock",         default: 0
+    t.integer  "stock"
     t.string   "description"
     t.string   "category"
     t.float    "alcohol"
     t.string   "conditionning"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.string   "photo"
     t.index ["user_id"], name: "index_beers_on_user_id", using: :btree
