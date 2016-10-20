@@ -30,7 +30,7 @@ class BeersController < ApplicationController
   end
 
   def update        # PATCH /beers/:id
-    @beer = current_user.find(set_beer)
+    @beer = current_user.beers.find(set_beer)
     @beer.update(beer_params)
 
     redirect_to beer_path(@beer)
