@@ -45,9 +45,7 @@
 <div class="beer-profile">
 <% if @beer.stock > 0 %>
   <% if current_user.address %>
-    <%= button_to beer_wishlists_path(@beer) do %>
-      <p class="btn btn-wishlist"> Add to Wishlist </p>
-    <% end %>
+    <%= button_to "Add to Wishlist", beer_wishlists_path(@beer), class:"btn btn-wishlist" %>
   <% else %>
     <%= link_to new_beer_wishlist_path(@beer) do %>
       <p class="btn btn-wishlist"> Add to Wishlist </p>
