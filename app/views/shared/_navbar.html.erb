@@ -53,7 +53,13 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "modal", "data-target" => "#login" %>
+
+          <div class="modal fade" id="login">
+                <div class='container'>
+                  <%= render "/devise/sessions/new", resource: User.new, resource_name: "user" %>
+                </div> <!-- fin du div class=container -->
+          </div> <!-- fin div class modal fade -->
 
     <% end %>
 
@@ -62,6 +68,8 @@
       <i class="fa fa-plus navbar-plus"></i> Add beer
     <% end %>
   </div>
+
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
@@ -74,5 +82,7 @@
       </ul>
     </div>
   </div>
-</div>
+
+
+</div> <!-- fin de la div navbar -->
 
