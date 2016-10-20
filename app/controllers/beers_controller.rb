@@ -25,7 +25,7 @@ class BeersController < ApplicationController
   end
 
   def edit          # GET /beers/:id/edit
-    @beer = current_user.find(set_beer)
+    @beer = current_user.beers.find(set_beer.id)
 
   end
 
