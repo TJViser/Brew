@@ -44,8 +44,14 @@
 
 
 <% if @beer.stock > 0 %>
-  <%= link_to new_beer_wishlists_path(@beer) do %>
-    <p class="btn btn-wishlist"> Add to Wishlist </p>
+  <% if current_user.address %>
+    <%= button_to beer_wishlists_path(@beer) do %>
+      <p class="btn btn-wishlist"> Add to Wishlist </p>
+    <% end %>
+  <% else %>
+    <%= link_to new_beer_wishlist_path(@beer) do %>
+      <p class="btn btn-wishlist"> Add to Wishlist </p>
+    <% end %>
   <% end %>
 <% else %>
   <p class="btn btn-sold-out muted">Sold out</p>

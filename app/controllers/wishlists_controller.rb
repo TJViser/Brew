@@ -7,8 +7,11 @@ class WishlistsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @user.update(address: params[:user][:address], cp: params[:user][:cp], city: params[:user][:city], country: params[:user][:country])
+    if params[:user]
+      @user = current_user
+      @user.update(address: params[:user][:address], cp: params[:user][:cp], city: params[:user][:city], country: params[:user][:country])
+    end
+
     @wishlist = Wishlist.new({ user_id: current_user.id, beer_id: params[:beer_id], quantity: 1 })
     @beer = Beer.find(id = params[:beer_id])
     @beer.stock -= 1
