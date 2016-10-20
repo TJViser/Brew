@@ -65,7 +65,7 @@
   }
 
 .btn-pricing {
-  background-color: #AB1B16;
+  background-color: #05004D;
   color:  #fff;
   font-family: 'Raleway', 'sans-serif';
   border-radius: 0px;
@@ -113,7 +113,7 @@
   // border-color: rgba (0,0,0,0);
   // box-shadow: 5px 5px 0.8em  grey;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 0px;
   padding-bottom: 5px;
   text-decoration: none;
   background-color: #fff;
@@ -135,6 +135,10 @@
     overflow: hidden;
     background: #fff;
     border-bottom: solid 1px #F0F0F0;
+}
+
+.card-deck-wrapper .hover {
+
 }
 
 // .card-text {
