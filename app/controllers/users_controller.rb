@@ -4,9 +4,13 @@ class UsersController < ApplicationController
   def dashboard
     @my_wishes = current_user.wishlists
     @my_beers = current_user.beers
+    @user = current_user
 
     # @wishes_on_my_beers = current_user.beers.whislists
+  end
 
+  def profile
+    @user = User.find(params[:id])
   end
 
   private

@@ -4,13 +4,15 @@
 
 <%= cl_image_tag @beer.photo, height: 300, width: 400, crop: :fill %>
 
+
 <h3>Category: <%= @beer.category %></h3>
 <h4>Description: <%= @beer.description %></h4>
 <h4>Alcohol rate: <%= @beer.alcohol %>%</h4>
 <h4>Price: <%= @beer.price %> EUR</h4>
 <h4>In stock: <%= @beer.stock %> unit(s)</h4>
 <h4>Conditionning: <%= @beer.conditionning %></h4>
-<h4>User: <%= @beer.user_id %></h4>
+<h4>Brewer: <%= link_to @beer.user.first_name, user_profile_path(@beer.user) %></h4>
+
 <% if @beer.user == current_user %>
   <p><%= link_to 'Edit', edit_beer_path(@beer) %></p>
   <p><%= link_to 'Delete', beer_path(@beer), method: :delete, data: { confirm: 'Are you sure?' } %>

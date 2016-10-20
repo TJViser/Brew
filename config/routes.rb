@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get "dashboard", to: "users#dashboard"
-
+  get "users/:id", to: "users#profile", as: "user_profile"
 
 
 end
