@@ -6,9 +6,20 @@
 //   position: relative;
 // }
 .card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  font-size: 0.8em;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-family: 'Raleway', 'sans-serif';
+  color: #05004D;
+}
+
+.card-text {
+    color: #9d9d9d;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 8px 0;
+    max-height: 30px;
+    overflow: hidden;
 }
 .card-category {
   position: absolute;
@@ -16,6 +27,30 @@
   left: 10px;
   font-size: 10px;
 
+}
+
+.card-block {
+  background-color: #fff;
+
+}
+
+.card-info p {
+  margin: 0 0 0px;
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+    font-family: 'Raleway', 'sans-serif', 'extra-bold';
+    color: #05004D;
+}
+
+.card-info {
+  text-align: left;
+  padding: 0 0 10px 10px;
 }
 .card-description {
   position: absolute;
@@ -28,6 +63,13 @@
 .card-description p {
   font-size: 13px;
   }
+
+.btn-pricing {
+  background-color: #AB1B16;
+  color:  #fff;
+  font-family: 'Raleway', 'sans-serif';
+  border-radius: 0px;
+}
 .card-link {
   position: absolute;
   top: 0;
@@ -68,12 +110,85 @@
 .card-deck-wrapper {
   // border-style: solid;
   // border-width:  1px;
-  border-color: black;
-  box-shadow: 5px 5px 0.8em  grey;
+  // border-color: rgba (0,0,0,0);
+  // box-shadow: 5px 5px 0.8em  grey;
   text-align: center;
   padding-top: 15px;
   padding-bottom: 5px;
+  text-decoration: none;
+  background-color: #fff;
 
 }
+
+.card-deck {
+  text-align: center;
+  margin: 5px;
+  // box-shadow: 0px 0px 0.8em  grey;
+  width: relative;
+
+}
+
+.card-picture {
+      width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: solid 1px #F0F0F0;
+}
+
+// .card-text {
+//     width: 100%;
+//     height: 46%;
+//     box-sizing: border-box;
+//     padding: 12px 20px 20px;
+//     position: relative;
+//     text-align: left;
+//     margin: 0 0 0 0px;
+//     padding: 0 0 0 0px;
+
+// }
+
+// .card-text h4 {
+//   text-decoration: none !important;
+//   margin-right: 10px;
+//   margin-left: 10px;
+// }
+
+// .card-text p {
+//   margin-right: 10px;
+//   margin-left: 10px;
+// }
+
+// .card-text .title {
+//     font-size: 1.5em;
+//     font-weight: 800;
+//     text-transform: uppercase;
+//     display: block;
+//     margin-bottom: 3px;
+//     margin-top: 10px;
+//     color: #1d2e60;
+// }
+
+// .card-text .description {
+//     color: #9d9d9d;
+//     font-size: 1em;
+//     font-weight: 400;
+//     max-height: 30px;
+//     overflow: hidden;
+// }
+
+// .card-text .price {
+//     width: 100%;
+//     height: 40px;
+//     display: block;
+//     background: #be262f;
+//     color: #fff;
+//     line-height: 40px;
+//     cursor: pointer;
+//     outline: none;
+//     padding-right: 20px;
+//     padding-left: 20px;
+// }
 
 

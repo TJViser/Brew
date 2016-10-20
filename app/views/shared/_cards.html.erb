@@ -1,18 +1,48 @@
-<div class="marged">
+<!-- <div class="marged">
   <div class="container">
     <div class="row">
       <% beers.each do |beer| %>
         <div class="card col-sm-3">
         <%= link_to beer_path(beer) do %>
         <div class="card-deck-wrapper">
-          <div class="card-deck">
-              <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit  %>
+          <div class="card-picture">
+              <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit, :class => "card-picture" %>
               </div>
-              <div class="card-block">
-                <h4 class="card-title"><%= beer.name %></h4>
-                <p class="card-text"><%= beer.description %></p>
-                <p class="card-text"><small class="text-muted"><%= beer.created_at %></small></p>
+              <div class="card-text">
+                <h4 class="card-text title"><%= beer.name %></h4>
+                <p class="card-text brewer"><%= beer.user_id %></p>
+                <p class="card-text description"><%= beer.description %></p>
+                <div class="card-text price"> <%= beer.price %></div>
+                <p class="card-text creation"><small class="text-muted"><%= beer.created_at %></small></p>
               </div>
+          </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> -->
+
+<div class="marged-cards">
+  <div class="container">
+    <div class="row">
+      <% beers.each do |beer| %>
+        <div class="card col-sm-3">
+           <%= link_to beer_path(beer) do %>
+          <div class="card-deck-wrapper">
+            <div class="card-picture">
+              <%= cl_image_tag beer.photo, height: 200, width: 150, crop: :fit, :class => "card-picture" %>
+            </div>
+            <div class="card-block">
+              <div class="card-info">
+              <h4 class="card-title"><%= beer.name %></h4>
+              <p class="card-user"><%= beer.user.first_name %> <%= beer.user.last_name %></p>
+              <p class="card-user"><%= beer.conditionning %></p>
+              <p class="card-text"><%= beer.description %></p>
+              </div>
+              <a href="#" class="btn btn-pricing"> <%= beer.price %> € </a>
+              <p class="card-text creation"><small class="text-muted"><%= beer.created_at.strftime("%d %b. %Y") %></small></p>
+            </div>
           </div>
           <% end %>
         </div>
