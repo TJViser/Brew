@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     @my_beers = current_user.beers
 
     # @wishes_on_my_beers = current_user.beers.whislists
-
   end
 
   private
