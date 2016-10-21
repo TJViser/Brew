@@ -21,8 +21,11 @@ class WishlistsController < ApplicationController
   end
 
   def send_beer
-    @wishlist = Wishlist.find(params[:wishlist_id])
     @wishlist.dispatch
+  end
+
+  def update
+    @wishlist.update
   end
 
   private
@@ -30,4 +33,6 @@ class WishlistsController < ApplicationController
   def find_wishlist
     @wishlist = Wishlist.find(params[:id]) if params[:id]
   end
+
+
 end
