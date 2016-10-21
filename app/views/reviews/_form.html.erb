@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <%= simple_form_for @review do |f| %>
+          <%= f.input :content, placeholder: "Your review" %>
+          <%= f.input :rating, collection: [ "1", "2", "3", "4", "5"] %>
+          <%= f.submit 'Save', class:"btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
