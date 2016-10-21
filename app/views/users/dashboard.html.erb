@@ -4,7 +4,29 @@
   </h1>
 </div>
 
-<h1>My Wishlists</h1>
+<h1>My orders</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Wished on</th>
+    <th>Beer</th>
+    <th>Wisher</th>
+    <th>Address</th>
+    <th>Status</th>
+  </tr>
+
+  <% @my_beers.each do |beer| %>
+    <% beer.wishlists.each do |wishlist| %>
+      <tr>
+        <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
+        <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
+        <td><%= link_to wishlist.user.first_name, user_profile_path(wishlist.user_id) %></td>
+        <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
+        <td>to do</td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
 
 <% @my_wishes.each do |wishlist| %>
 <p><%= wishlist.user.first_name %> <%= wishlist.user.last_name %> <%= wishlist.beer.name %> Quantity : <%= wishlist.quantity %></p>
