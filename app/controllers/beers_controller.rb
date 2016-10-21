@@ -22,7 +22,7 @@ class BeersController < ApplicationController
     @beer = Beer.new(beer_params)
     @beer.user = current_user
     if @beer.save
-      redirect_to beer_path(@beer)
+      redirect_to beer_path(@beer), notice: 'Your beer was successfully added.'
     else
       render :new
     end
@@ -31,14 +31,13 @@ class BeersController < ApplicationController
 
   def edit          # GET /beers/:id/edit
     @beer = current_user.beers.find(set_beer.id)
-
   end
 
   def update        # PATCH /beers/:id
     @beer = current_user.beers.find(set_beer)
     @beer.update(beer_params)
 
-    redirect_to beer_path(@beer)
+    redirect_to beer_path(@beer), notice: 'Your beer was successfully updated.'
 
   end
 
@@ -46,7 +45,7 @@ class BeersController < ApplicationController
   @beer = Beer.find(set_beer)
   @beer.destroy
 
-  redirect_to beers_url, notice: 'Beer was successfully destroyed.'
+  redirect_to dashboard_path, notice: 'Your beer was successfully destroyed.'
 
   end
 
