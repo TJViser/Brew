@@ -72,7 +72,7 @@
   <tbody>
     <% @my_beers.each do |beer| %>
       <tr>
-        <td>photo</td>
+        <td><%= cl_image_tag beer.photo, height: 100, crop: :fit %></td>
         <td>
           <%= link_to beer.name, beer_path(beer.id) %>
         </td>
