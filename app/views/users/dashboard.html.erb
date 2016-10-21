@@ -1,100 +1,117 @@
 <div class="index-bar-beer">
   <h1 class="beer-name">
-    <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+  <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
   </h1>
 </div>
-
-<h1>My orders</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>  </th>
-      <th>Beer</th>
-      <th>Wisher</th>
-      <th>Address</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @my_beers.each do |beer| %>
-    <% beer.wishlists.each do |wishlist| %>
-      <tr>
-        <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
-        <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-        <td><%= link_to wishlist.user.first_name, user_profile_path(wishlist.user_id) %></td>
-        <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
-        <td>to do</td>
-      </tr>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
-
-<h1>My wishlist</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>  </th>
-      <th>Beer</th>
-      <th>Brewer</th>
-      <th>Status</th>
-      <th>My review</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @my_wishes.each do |wishlist| %>
-      <tr>
-        <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
-        <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-        <td><%= link_to wishlist.user.first_name, user_profile_path(wishlist.user_id) %></td>
-        <td>to do</td>
-        <td>to do</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<h1>My beers</h1>
-
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th> </th>
-    <th>Beer name</th>
-    <th>Posted on</th>
-    <th>In stock</th>
-    <th>Wishes</th>
-    <th>Rating</th>
-  </tr>
-  </thead>
-  <tbody>
-    <% @my_beers.each do |beer| %>
-      <tr>
-        <td><%= cl_image_tag beer.photo, height: 100, crop: :fit %></td>
-        <td>
-          <%= link_to beer.name, beer_path(beer.id) %>
-        </td>
-        <td><%= beer.created_at.strftime("%d %b. %Y") %></td>
-        <td><%= beer.stock %> units (<%= beer.conditionning %>)</td>
-        <td><%= beer.wishlists.count %></td>
-        <td> ***** </td>
-        <td><%= link_to edit_beer_path(beer.id) do %>
-            <p><i class="fa fa-pencil" aria-hidden="true"></i> Edit</p>
-          <% end %>
-          <%= link_to beer, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <p><i class="fa fa-trash" aria-hidden="true"></i> Delete</p>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-
-
-
-
-
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2">
+        <h4>My orders</h4>
+      </div>
+      <div class="col-xs-12 col-sm-10">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>  </th>
+              <th>Beer</th>
+              <th>Wisher</th>
+              <th>Address</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @my_beers.each do |beer| %>
+            <% beer.wishlists.each do |wishlist| %>
+            <tr>
+              <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
+              <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
+              <td><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
+              <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
+              <td>to do</td>
+            </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2">
+        <h4>My wishlist</h4>
+      </div>
+      <div class="col-xs-12 col-sm-10">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>  </th>
+              <th>Beer</th>
+              <th>Brewer</th>
+              <th>Status</th>
+              <th>My review</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @my_wishes.each do |wishlist| %>
+            <tr>
+              <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
+              <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
+              <td><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
+              <td>to do</td>
+              <td>to do</td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2">
+        <h4>My beers</h4>
+      </div>
+      <div class="col-xs-12 col-sm-10">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>Beer name</th>
+              <th>Posted on</th>
+              <th>In stock</th>
+              <th>Wishes</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @my_beers.each do |beer| %>
+            <tr>
+              <td><%= cl_image_tag beer.photo, height: 100, crop: :fit %></td>
+              <td>
+                <%= link_to beer.name, beer_path(beer.id) %>
+              </td>
+              <td><%= beer.created_at.strftime("%d %b. %Y") %></td>
+              <td><%= beer.stock %> units (<%= beer.conditionning %>)</td>
+              <td><%= beer.wishlists.count %></td>
+              <td> ***** </td>
+              <td><%= link_to edit_beer_path(beer.id) do %>
+                <p><i class="fa fa-pencil" aria-hidden="true"></i> Edit</p>
+                <% end %>
+                <%= link_to beer, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <p><i class="fa fa-trash" aria-hidden="true"></i> Delete</p>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
