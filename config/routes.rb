@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get "dashboard", to: "users#dashboard"
   get "users/edit_profile", to: "users#edit_profile", as: "edit_user_profile"
   get "users/:id", to: "users#profile", as: "user_profile"
+  post "send_beer/:id", to: "wishlists#send_beer", as: "send_beer"
 
 end

@@ -3,8 +3,10 @@ class Wishlist < ApplicationRecord
   belongs_to :user
   has_many :reviews
 
+
   def dispatch
     self.sent = true
+    self.save
   end
 
 end
