@@ -32,7 +32,7 @@
                 <% if wishlist.sent %>
                   Sent <i class="fa fa-check" aria-hidden="true"></i>
                 <% else %>
-                  <%=  %>
+                  <%= button_to "Mark as sent", send_beer_path(wishlist.id), class:"btn btn-warning" %>
                 <% end %>
               </td>
             </tr>

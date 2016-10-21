@@ -22,6 +22,7 @@ class WishlistsController < ApplicationController
 
   def send_beer
     @wishlist.dispatch
+    redirect_to dashboard_path, notice: "Order successfully marked as sent"
   end
 
   def update
