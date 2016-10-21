@@ -30,7 +30,7 @@
               <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
               <td style="color: green;">
                 <% if wishlist.sent %>
-                  Sent <i class="fa fa-check" aria-hidden="true"></i>
+                  <i class="fa fa-check" aria-hidden="true"></i> sent
                 <% else %>
                   <%= button_to "Mark as sent", send_beer_path(wishlist.id), class:"btn btn-warning" %>
                 <% end %>
@@ -67,7 +67,16 @@
               <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
               <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
               <td><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
-              <td>to do</td>
+              <% if wishlist.sent %>
+                <td style="color: green;">
+                  <i class="fa fa-check" aria-hidden="true"></i> sent by <%= wishlist.beer.user.first_name %>
+                </td>
+              <% else %>
+                <td style="color: orange;">
+                  <i class="fa fa-clock-o" aria-hidden="true"></i> pending
+                </td>
+                <% end %>
+              </td>
               <td>to do</td>
             </tr>
             <% end %>
