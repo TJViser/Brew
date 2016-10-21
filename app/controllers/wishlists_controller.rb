@@ -22,7 +22,7 @@ class WishlistsController < ApplicationController
 
   def send_beer
     @wishlist = Wishlist.find(params[:wishlist_id])
-    @wishlist.send
+    @wishlist.dispatch
   end
 
   private
