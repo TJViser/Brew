@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :users, only: :update
 
+  resources :reviews, only: :create
+
   get "dashboard", to: "users#dashboard"
   get "users/edit_profile", to: "users#edit_profile", as: "edit_user_profile"
   get "users/:id", to: "users#profile", as: "user_profile"
