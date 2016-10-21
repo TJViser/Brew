@@ -7,7 +7,7 @@
   <div class="marged">
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <h4><i class="fa fa-heart" aria-hidden="true"></i>  My orders</h4>
+        <h4><i class="fa fa-heart" aria-hidden="true"></i>   Orders</h4>
       </div>
       <div class="col-xs-12 col-sm-10">
         <table class="table table-hover">
@@ -26,7 +26,8 @@
             <tr>
               <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
               <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-              <td><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
+              <td><% avatar_url = wishlist.user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
               <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
               <td style="color: green;">
                 <% if wishlist.sent %>
@@ -48,7 +49,7 @@
   <div class="marged">
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>  My wishlist</h4>
+        <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Wishlist</h4>
       </div>
       <div class="col-xs-12 col-sm-10">
         <table class="table table-hover">
@@ -66,7 +67,8 @@
             <tr>
               <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
               <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-              <td><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
+              <td><% avatar_url = wishlist.beer.user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
               <% if wishlist.sent %>
                 <td style="color: green;">
                   <i class="fa fa-check" aria-hidden="true"></i> sent by <%= wishlist.beer.user.first_name %>
@@ -90,7 +92,7 @@
   <div class="marged">
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <h4><i class="fa fa-beer" aria-hidden="true"></i>  My beers</h4>
+        <h4><i class="fa fa-beer" aria-hidden="true"></i>  Beers</h4>
       </div>
       <div class="col-xs-12 col-sm-10">
         <table class="table table-hover">
