@@ -66,7 +66,7 @@
     <th>Posted on</th>
     <th>In stock</th>
     <th>Wishes</th>
-    <th>Ratings</th>
+    <th>Rating</th>
   </tr>
   </thead>
   <tbody>
@@ -81,10 +81,10 @@
         <td><%= beer.wishlists.count %></td>
         <td> ***** </td>
         <td><%= link_to edit_beer_path(beer.id) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <p><i class="fa fa-pencil" aria-hidden="true"></i> Edit</p>
           <% end %>
           <%= link_to beer, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+            <p><i class="fa fa-trash" aria-hidden="true"></i> Delete</p>
           <% end %>
         </td>
       </tr>
