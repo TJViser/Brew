@@ -20,6 +20,10 @@ class WishlistsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def send_beer
+    @wishlist = Wishlist.find(params[:wishlist_id])
+    @wishlist.send
+  end
 
   private
 
