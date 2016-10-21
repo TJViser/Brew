@@ -3,91 +3,101 @@
   <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
   </h1>
 </div>
-<div class="container">
-  <div class="marged">
-    <div class="row">
-      <div class="col-xs-12 col-sm-2">
-        <h4><i class="fa fa-heart" aria-hidden="true"></i>   Orders</h4>
-      </div>
-      <div class="col-xs-12 col-sm-10">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>  </th>
-              <th>Beer</th>
-              <th>Wisher</th>
-              <th>Address</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @my_beers.each do |beer| %>
-            <% beer.wishlists.each do |wishlist| %>
-            <tr>
-              <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
-              <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-              <td><% avatar_url = wishlist.user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
-              <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
-              <td style="color: green;">
-                <% if wishlist.sent %>
-                  <i class="fa fa-check" aria-hidden="true"></i> sent
-                <% else %>
-                  <%= button_to "Mark as sent", send_beer_path(wishlist.id), class:"btn btn-warning" %>
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="marged">
-    <div class="row">
-      <div class="col-xs-12 col-sm-2">
-        <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Wishlist</h4>
-      </div>
-      <div class="col-xs-12 col-sm-10">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>  </th>
-              <th>Beer</th>
-              <th>Brewer</th>
-              <th>Status</th>
-              <th>My review</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @my_wishes.each do |wishlist| %>
-            <tr>
-              <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
-              <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
-              <td><% avatar_url = wishlist.beer.user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
-              <% if wishlist.sent %>
+
+<% @my_beers.each do |beer| %>
+  <% if beer.wishlists.count >= 1 %>
+  <div class="container">
+    <div class="marged">
+      <div class="row">
+        <div class="col-xs-12 col-sm-2">
+          <h4><i class="fa fa-heart" aria-hidden="true"></i>   Orders</h4>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>  </th>
+                <th>Beer</th>
+                <th>Wisher</th>
+                <th>Address</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @my_beers.each do |beer| %>
+              <% beer.wishlists.each do |wishlist| %>
+              <tr>
+                <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
+                <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
+                <td><% avatar_url = wishlist.user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
+                <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
                 <td style="color: green;">
-                  <i class="fa fa-check" aria-hidden="true"></i> sent by <%= wishlist.beer.user.first_name %>
+                  <% if wishlist.sent %>
+                    <i class="fa fa-check" aria-hidden="true"></i> sent
+                  <% else %>
+                    <%= button_to "Mark as sent", send_beer_path(wishlist.id), class:"btn btn-warning" %>
+                  <% end %>
                 </td>
-              <% else %>
-                <td style="color: orange;">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i> pending
-                </td>
-                <% end %>
-              </td>
-              <td>to do</td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+              </tr>
+              <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
+<% end %>
+
+<% if current_user.wishlists.count >= 1 %>
+  <div class="container">
+    <div class="marged">
+      <div class="row">
+        <div class="col-xs-12 col-sm-2">
+          <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Wishlist</h4>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>  </th>
+                <th>Beer</th>
+                <th>Brewer</th>
+                <th>Status</th>
+                <th>My review</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @my_wishes.each do |wishlist| %>
+              <tr>
+                <td><%= wishlist.created_at.strftime("%d %b. %Y") %></td>
+                <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
+                <td><% avatar_url = wishlist.beer.user.facebook_picture_url || "http://placehold.it/30x30" %>
+            <%= image_tag avatar_url, class: "avatar dropdown-toggle" %><span>    </span><%= link_to wishlist.beer.user.first_name + " " + wishlist.beer.user.last_name, user_profile_path(wishlist.user_id) %></td>
+                <% if wishlist.sent %>
+                  <td style="color: green;">
+                    <i class="fa fa-check" aria-hidden="true"></i> sent by <%= wishlist.beer.user.first_name %>
+                  </td>
+                <% else %>
+                  <td style="color: orange;">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> pending
+                  </td>
+                  <% end %>
+                </td>
+                <td>to do</td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.beers.count >= 1 %>
 <div class="container">
   <div class="marged">
     <div class="row">
@@ -132,3 +142,4 @@
     </div>
   </div>
 </div>
+<% end %>
