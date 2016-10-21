@@ -29,15 +29,20 @@
   <div class="row">
       <div class="beer-profile">
         <div class="beer-profile-picture">
-        <%= cl_image_tag @beer.photo || "http://placehold.it/100x100" %>
+        <%= cl_image_tag @beer.photo, height: 300, width: 200, crop: :fill || "http://placehold.it/100x100" %>
         </div>
         <p><span>Category: </span>      <%= @beer.category %></p>
         <p><span>Description: </span>   <%= @beer.description %></p>
-        <p><span>Alcohol rate: </span>  <%= @beer.alcohol %></p>
+        <p><span>Alcohol rate: </span>  <%= @beer.alcohol %>%</p>
         <p><span>Price:  </span>        <%= @beer.price %> EUR</p>
         <p><span>In stock: </span>      <%= @beer.stock %> unit(s) </p>
         <p><span>Conditionning: </span> <%= @beer.conditionning %> </p>
         <p><span>Brewer: </span><%= link_to @beer.user.first_name, user_profile_path(@beer.user) %> </p>
+      <% if @beer.user == current_user %>
+  <p><%= link_to 'Edit', edit_beer_path(@beer) %></p>
+  <p><%= link_to 'Delete', beer_path(@beer), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+        <p><%= link_to 'Back to index', beers_path %></p>
       </div>
   </div>
 </div>
