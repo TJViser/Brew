@@ -2,7 +2,9 @@ class Wishlist < ApplicationRecord
   belongs_to :beer
   belongs_to :user
 
-  def send
+  validates :rating, numericality: true, inclusion: {in: (0..5)}
+
+  def dispatch
     self.sent = true
   end
 
