@@ -28,7 +28,13 @@
               <td><%= link_to wishlist.beer.name, beer_path(wishlist.beer_id) %></td>
               <td><%= link_to wishlist.user.first_name + " " + wishlist.user.last_name, user_profile_path(wishlist.user_id) %></td>
               <td><%= wishlist.user.address %> - <%= wishlist.user.city %> <%= wishlist.user.cp %> (<%= wishlist.user.country %>)</td>
-              <td>to do</td>
+              <td style="color: green;">
+                <% if wishlist.sent %>
+                  Sent <i class="fa fa-check" aria-hidden="true"></i>
+                <% else %>
+                  <%=  %>
+                <% end %>
+              </td>
             </tr>
             <% end %>
             <% end %>

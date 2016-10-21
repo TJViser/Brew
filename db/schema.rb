@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20161021131243) do
     t.text     "bio"
     t.string   "beer_brand"
     t.string   "city"
-    t.float    "latitude"
-    t.float    "longitude"
     t.integer  "cp"
     t.string   "address"
     t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
